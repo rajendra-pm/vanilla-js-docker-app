@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vanilla JS App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Hello from Frontend!</h1>
+    <button onclick="fetchMessage()">Get Message from Backend</button>
+    <p id="backend-message"></p>
+
+    <script>
+        async function fetchMessage() {
+            const res = await fetch('http://localhost:3000/message');
+            const data = await res.json();
+            document.getElementById('backend-message').innerText = data.message;
+        }
+    </script>
+</body>
+</html>
